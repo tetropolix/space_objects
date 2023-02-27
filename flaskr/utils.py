@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-
 class MaxDaysRangeError(Exception):
     pass
 

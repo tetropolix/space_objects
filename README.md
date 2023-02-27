@@ -3,6 +3,7 @@
 **Local usage**
 
 **Dependencies installation**
+
 *pip install -r requirements.txt*
 -------------
 1. Specify API_KEY configuration variable via **config.py** file or via **env variable**
