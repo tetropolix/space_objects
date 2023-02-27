@@ -3,7 +3,7 @@ import os
 import aiohttp
 from aiohttp import ClientSession
 from flask import Flask, jsonify, request, abort
-from space_objects.flaskr.utils import MaxDaysRangeError, date_ranges, parse_neos, valid_date_query_param
+from .utils import MaxDaysRangeError, date_ranges, parse_neos, valid_date_query_param
 
 
 def create_app():
