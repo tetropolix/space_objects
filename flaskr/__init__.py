@@ -1,4 +1,5 @@
 import asyncio
+import os
 import aiohttp
 from aiohttp import ClientSession
 from flask import Flask, jsonify, request, abort
@@ -8,8 +9,14 @@ from flaskr.utils import MaxDaysRangeError, date_ranges, parse_neos, valid_date_
 def create_app():
     '''Application factory function providing us with Flask application instance'''
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_pyfile('config.py')
-
+    app.config['API_KEY'] = os.environ.get('API_KEY',default=None)
+    if(app.config.get('API_KEY') is None):
+        try:
+            app.config.from_pyfile('config.py')
+        except FileNotFoundError:
+        # API_KEY not specified nor in env, then raise ValueError
+            raise ValueError('API_KEY env variable not found in config.py file nor in actual environment')
+ 
     @app.errorhandler(400)
     def bad_request(err):
         return jsonify(error=str(err)), 400
