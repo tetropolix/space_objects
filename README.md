@@ -1,5 +1,7 @@
 # space-objects
 
+**Docker image** - https://hub.docker.com/r/tetropolix/space_objects 
+
 **Local usage**
 
 **Dependencies installation**
